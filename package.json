@@ -1,7 +1,7 @@
 {
   "name": "jhipster-uml",
-  "version": "2.0.0",
-  "description": "UML support for JHipster via XMI and JDL files",
+  "version": "2.0.1",
+  "description": "UML support for JHipster via XMI files",
   "bin": {
     "jhipster-uml": "./jhipster-uml.js"
   },
@@ -9,14 +9,13 @@
     "generator-jhipster",
     "UML",
     "XMI",
-    "JSON",
-    "JDL"
+    "JSON"
   ],
   "homepage": "https://github.com/jhipster/jhipster-uml",
   "bugs": "https://github.com/jhipster/jhipster-uml/issues",
   "author": {
     "name": "Mathieu Abou-Aichi",
-    "email": "",
+    "email": "mathieu.aa@free.fr",
     "url": "https://github.com/MathieuAA"
   },
   "main": "module/index.js",
@@ -25,22 +24,22 @@
     "url": "git://github.com/jhipster/jhipster-uml.git"
   },
   "scripts": {
-    "test": "mocha test",
-    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha test -- -t 5000"
+    "test": "./node_modules/mocha/bin/mocha test",
+    "coverage": "./node_modules/istanbul/lib/cli.js cover ./node_modules/mocha/bin/_mocha test; ./node_modules/istanbul/lib/cli.js check-coverage"
   },
   "dependencies": {
     "chalk": "1.1.3",
-    "deasync": "0.1.7",
-    "inquirer": "1.1.3",
+    "deasync": "0.1.9",
+    "inquirer": "1.2.2",
     "jhipster-core": "1.2.0",
-    "lodash": "4.15.0",
+    "lodash": "4.16.6",
     "xml2js": "0.4.17",
-    "yargs": "5.0.0"
+    "yargs": "6.3.0"
   },
   "devDependencies": {
     "chai": "3.5.0",
     "istanbul": "0.4.5",
-    "mocha": "3.0.2",
+    "mocha": "3.1.2",
     "mocha-clean": "1.0.0"
   },
   "peerDependencies": {},
