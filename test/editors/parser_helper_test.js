@@ -2,7 +2,8 @@
 
 var expect = require('chai').expect,
     isAnId = require('../../lib/editors/parser_helper').isAnId,
-    extractClassName = require('../../lib/editors/parser_helper').extractClassName;
+    extractClassName = require('../../lib/editors/parser_helper').extractClassName,
+    getXmlElementFromRawIndexes = require('../../lib/editors/parser_helper').getXmlElementFromRawIndexes;
 
 describe('ParserHelper', () => {
   describe('#isAnId', () => {
@@ -35,6 +36,26 @@ describe('ParserHelper', () => {
         expect(names.entityName).to.eq('EntityName');
         expect(names.tableName).to.eq('table_name');
       });
+    });
+  });
+  describe('#getXmlElementFromRawIndexes', () => {
+    var root = {
+      packagedElement: [
+        {dumb: 'dumb'},
+        {
+          packagedElement: [
+            {dumb: 'dumb'},
+            {dumb: 'dumb'},
+            {dumb: 'good'}
+          ]
+        }
+      ]
+    };
+    var rawIndexes = [{index: 2, path: [1]}];
+    var xmlElt = getXmlElementFromRawIndexes(root, rawIndexes[0]);
+
+    it('returns the right element', () => {
+      expect(xmlElt.dumb).to.eq('good');
     });
   });
 });
